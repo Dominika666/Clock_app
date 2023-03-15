@@ -51,6 +51,7 @@ body {
     line-height: 1.5;
     letter-spacing: 1px;
 }
+
 .quote-random2 {
     display: none;
     line-height: 1.5;
@@ -117,7 +118,7 @@ i .hello-morning {
 .more {
     position: absolute;
     bottom: 100px;
-    right: 200px;
+    right: 50px;
     height: 50px;
     width: 120px;
     padding: 5px;
@@ -140,7 +141,7 @@ i .hello-morning {
 .more2 {
     position: absolute;
     bottom: 450px;
-    right: 200px;
+    right: 50px;
     height: 50px;
     width: 120px;
     padding: 5px;
@@ -170,35 +171,68 @@ i .hello-morning {
     bottom: 0;
     left: 0;
     color: black;
-    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: space-around;
     width: 100%;
     height: 400px;
-    padding: 20px 50px;
+    padding: 30px 20px;
     background-color: #ddd;
     opacity: 70%;
     transition: all 0.5s ease-out;
 }
 
 .info {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 300px;
+    max-height:300px;
 
-    margin: 20px;
-    height: 100px;
-    text-align: left;
 }
 
-h2 {
-    margin: 20px;
-    font-weight: 100;
+.h-info {
+    font-size: 24px;
     text-transform: uppercase;
+    font-weight: 100;
     letter-spacing: 1px;
+    text-align: center;
+
 }
 
 .p-info {
     font-size: 50px;
-    font-weight: bold;
+    padding: 20px;
     text-transform: uppercase;
-    margin: 20px;
+    font-weight: bold;
 }
 
+
+@media (max-width: 1024px) {
+
+    .more-info{
+        flex-direction: column;
+        align-items: center;
+        
+    }
+    
+    .app-body {
+        padding: 15px;
+    }
+
+    .clock-body {
+        padding: 25px;
+        height: 40%;
+    }
+    .clock-body2 {
+        justify-content: flex-start;
+        height: 30%;
+    }
+
+
+    .quotes {
+        width: 100%;
+        max-height: 100px;
+    }
+}
