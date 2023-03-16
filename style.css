@@ -26,8 +26,15 @@ body {
     display: flex;
     flex-direction: row;
     padding: 50px;
+    padding-bottom: 20px;
     width: 50%;
 
+}
+
+.quote-random-author {
+    display: inline;
+    padding: 10px 50px;
+    width: 50%;
 }
 
 .btn-change-quote {
@@ -67,15 +74,22 @@ span {
 }
 
 .clock-body {
+    position: absolute;
+    bottom: 50px;
+    left: 150px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    height: 60%;
-    padding: 30px 80px;
+    width: 60%;
+    height: 50%;
+    padding: 30px 50px;
 
 }
 
 .clock-body2 {
+    position: absolute;
+    top: 50px;
+    left: 150px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -88,13 +102,13 @@ span {
 }
 
 .acctually-time {
-    font-size: 100px;
+    font-size: 150px;
     font-weight: 800;
 }
 
 .hello-morning {
     padding: 10px;
-    font-size: 18px;
+    font-size: 24px;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -104,13 +118,13 @@ i .hello-morning {
 }
 
 .city {
-    font-size: 25px;
+    font-size: 40px;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 
 .time-unit {
-    font-size: 40px;
+    font-size: 60px;
     text-transform: uppercase;
     font-weight: 100;
 }
@@ -167,35 +181,55 @@ i .hello-morning {
 
 .more-info {
     display: none;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        ". ."
+        ". .";
     position: absolute;
     bottom: 0;
     left: 0;
     color: black;
-    flex-wrap: wrap;
-    justify-content: space-around;
     width: 100%;
     height: 400px;
-    padding: 30px 20px;
+    padding: 30px;
     background-color: #ddd;
     opacity: 70%;
     transition: all 0.5s ease-out;
 }
 
-.info {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    width: 300px;
-    max-height:300px;
-
+.info2 {
+    grid-area: 2 / 2 / 3 / 3;
+    justify-self: center;
 }
+
+.info-day {
+    grid-area: 1 / 1 / 2 / 2;
+    justify-self: center;
+}
+
+.info-year {
+    grid-area: 1 / 2 / 2 / 3;
+    justify-self: center;
+}
+
+.info-week {
+    grid-area: 2 / 1 / 3 / 2;
+    justify-self: center;
+}
+
+.info-timezone {
+    grid-area: 2 / 2 / 3 / 3;
+    justify-self: center;
+}
+
 
 .h-info {
     font-size: 24px;
     text-transform: uppercase;
-    font-weight: 100;
+    font-weight: 300;
     letter-spacing: 1px;
     text-align: center;
 
@@ -204,19 +238,15 @@ i .hello-morning {
 .p-info {
     font-size: 50px;
     padding: 20px;
-    text-transform: uppercase;
     font-weight: bold;
+    text-align: center;
 }
+
 
 
 @media (max-width: 1024px) {
 
-    .more-info{
-        flex-direction: column;
-        align-items: center;
-        
-    }
-    
+
     .app-body {
         padding: 15px;
     }
@@ -225,11 +255,11 @@ i .hello-morning {
         padding: 25px;
         height: 40%;
     }
+
     .clock-body2 {
         justify-content: flex-start;
         height: 30%;
     }
-
 
     .quotes {
         width: 100%;
