@@ -14,9 +14,28 @@ const weekNumber = document.querySelector('.week');
 const timezone = document.querySelector('.timezone');
 const actuallyTime = document.querySelector('.acctually-time');
 const city = document.querySelector('.city');
+const hello = document.querySelector('.hello-morning');
+const appBody = document.querySelector('.app-body');
 
-const currentTime = new Date();
-console.log(currentTime)
+
+const currentTime = new Date().getHours();
+
+if (currentTime < 12) {
+    hello.textContent = "Good morning, it's currently";
+
+} else if (currentTime < 18) {
+    hello.textContent = "Good afternoon, it's currently";
+    appBody.style.backgroundImage = "url(sunset.jpg)";
+
+} else {
+    hello.textContent = "Good evening, it's currently"
+    appBody.style.backgroundImage = "url(evening.jpg)";
+    moreInfo.style.color = "black";
+    moreInfo.style.backgroundColor = "grey";
+
+
+
+}
 
 
 const showMoreInfo = () => {
@@ -55,7 +74,11 @@ changeQuote = () => {
         .then(response => response.json())
         .then((response) => {
             console.log(response.content);
-            quoteRandom.textContent = `"${response.content}"`;
+            if (response.content.length > 200) {
+                quoteRandom.textContent = `"${response.content.slice(0, 200)}..."`;
+            } else {
+                quoteRandom.textContent = `"${response.content}"`;
+            }
             console.log(response.originator.name);
             quoteRandomAuthor.textContent = response.originator.name;
         })
