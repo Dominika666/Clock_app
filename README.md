@@ -2,7 +2,7 @@
 App with external APIs to set data based on a visitor's location and using logic to set content depending on the time of day.
 
 
-Users should be able to:
+Users can:
 
 View the optimal layout for the site depending on their device's screen size
 See hover states for all interactive elements on the page
