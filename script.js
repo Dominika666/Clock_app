@@ -25,15 +25,13 @@ if (currentTime < 12) {
 
 } else if (currentTime < 18) {
     hello.textContent = "Good afternoon, it's currently";
-    appBody.style.backgroundImage = "url(sunset.jpg)";
+    appBody.style.backgroundImage = "url(img/sunset.jpg)";
 
 } else {
     hello.textContent = "Good evening, it's currently"
-    appBody.style.backgroundImage = "url(evening.jpg)";
+    appBody.style.backgroundImage = "url(img/evening.jpg)";
     moreInfo.style.color = "black";
     moreInfo.style.backgroundColor = "grey";
-
-
 
 }
 
@@ -74,8 +72,8 @@ changeQuote = () => {
         .then(response => response.json())
         .then((response) => {
             console.log(response.content);
-            if (response.content.length > 200) {
-                quoteRandom.textContent = `"${response.content.slice(0, 200)}..."`;
+            if (response.content.length > 300) {
+                quoteRandom.textContent = `"${response.content.slice(0, 300)}..."`;
             } else {
                 quoteRandom.textContent = `"${response.content}"`;
             }
@@ -86,6 +84,7 @@ changeQuote = () => {
 }
 
 changeQuote()
+
 
 fetch('http://worldtimeapi.org/api/ip')
     .then(response => response.json())
