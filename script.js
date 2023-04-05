@@ -57,30 +57,6 @@ const showMoreInfo = () => {
     }
 }
 
-// const options = {
-//     method: 'GET',
-//     headers: {
-//         'X-RapidAPI-Key': '01254496aemsh90337ab63876538p17df15jsna1b752fd0285',
-//         'X-RapidAPI-Host': 'quotes15.p.rapidapi.com'
-//     }
-// };
-
-// changeQuote = () => {
-
-//     fetch('https://quotes15.p.rapidapi.com/quotes/random/', options)
-//         .then(response => response.json())
-//         .then((response) => {
-//             console.log(response.content);
-//             if (response.content.length > 300) {
-//                 quoteRandom.textContent = `"${response.content.slice(0, 300)}..."`;
-//             } else {
-//                 quoteRandom.textContent = `"${response.content}"`;
-//             }
-//             console.log(response.originator.name);
-//             quoteRandomAuthor.textContent = response.originator.name;
-//         })
-//         .catch(err => console.error(err));
-// }
 
 changeQuote = () => {
     fetch('https://api.whatdoestrumpthink.com/api/v1/quotes/random')
@@ -92,8 +68,7 @@ changeQuote = () => {
             } else {
                 quoteRandom.textContent = `"${response.message}"`;
             }
-            // console.log(response.originator.name);
-            // quoteRandomAuthor.textContent = response.originator.name;
+
         })
         .catch(err => console.error(err));
 }
