@@ -18,6 +18,7 @@ const hello = document.querySelector('.hello-morning');
 const appBody = document.querySelector('.app-body');
 
 
+
 const currentTime = new Date().getHours();
 
 if (currentTime < 12) {
@@ -56,33 +57,46 @@ const showMoreInfo = () => {
     }
 }
 
+// const options = {
+//     method: 'GET',
+//     headers: {
+//         'X-RapidAPI-Key': '01254496aemsh90337ab63876538p17df15jsna1b752fd0285',
+//         'X-RapidAPI-Host': 'quotes15.p.rapidapi.com'
+//     }
+// };
 
+// changeQuote = () => {
 
-const options = {
-    method: 'GET',
-    headers: {
-        'X-RapidAPI-Key': '01254496aemsh90337ab63876538p17df15jsna1b752fd0285',
-        'X-RapidAPI-Host': 'quotes15.p.rapidapi.com'
-    }
-};
+//     fetch('https://quotes15.p.rapidapi.com/quotes/random/', options)
+//         .then(response => response.json())
+//         .then((response) => {
+//             console.log(response.content);
+//             if (response.content.length > 300) {
+//                 quoteRandom.textContent = `"${response.content.slice(0, 300)}..."`;
+//             } else {
+//                 quoteRandom.textContent = `"${response.content}"`;
+//             }
+//             console.log(response.originator.name);
+//             quoteRandomAuthor.textContent = response.originator.name;
+//         })
+//         .catch(err => console.error(err));
+// }
 
 changeQuote = () => {
-
-    fetch('https://quotes15.p.rapidapi.com/quotes/random/', options)
+    fetch('https://api.whatdoestrumpthink.com/api/v1/quotes/random')
         .then(response => response.json())
         .then((response) => {
-            console.log(response.content);
-            if (response.content.length > 300) {
-                quoteRandom.textContent = `"${response.content.slice(0, 300)}..."`;
+            console.log(response.message);
+            if (response.message.length > 300) {
+                quoteRandom.textContent = `"${response.message.slice(0, 300)}..."`;
             } else {
-                quoteRandom.textContent = `"${response.content}"`;
+                quoteRandom.textContent = `"${response.message}"`;
             }
-            console.log(response.originator.name);
-            quoteRandomAuthor.textContent = response.originator.name;
+            // console.log(response.originator.name);
+            // quoteRandomAuthor.textContent = response.originator.name;
         })
         .catch(err => console.error(err));
 }
-
 changeQuote()
 
 
@@ -103,7 +117,6 @@ fetch('http://worldtimeapi.org/api/ip')
 
     })
     .catch(err => console.error(err));
-
 
 
 btnMore.addEventListener('click', showMoreInfo);
